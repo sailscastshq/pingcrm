@@ -41,6 +41,7 @@ module.exports = {
     },
     owner: {
       type: 'boolean',
+      isBoolean: true,
       defaultsTo: false
     },
     photoPath: {
