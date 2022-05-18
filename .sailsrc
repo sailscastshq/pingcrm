@@ -1,6 +1,8 @@
 {
   "generators": {
-    "modules": {}
+    "modules": {
+      "factory": "captain-vane-generator"
+    }
   },
   "_generatedWith": {
     "sails": "1.5.2",
