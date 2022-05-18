@@ -6,6 +6,7 @@
  */
 
 module.exports = {
+  tableName: 'contacts',
   attributes: {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
@@ -46,7 +47,8 @@ module.exports = {
     },
     postalCode: {
       type: 'string',
-      maxLength: 25
+      maxLength: 25,
+      columnName: 'postal_code'
     },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
