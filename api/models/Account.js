@@ -13,7 +13,7 @@ module.exports = {
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
     name: {
       type: 'string',
-      max: 50,
+      maxLength: 50,
       required: true
     },
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
