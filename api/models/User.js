@@ -60,5 +60,8 @@ module.exports = {
     account: {
       model: 'account'
     }
+  },
+  customToJSON: function () {
+    return _.omit(this, ['password'])
   }
 }
