@@ -6,6 +6,6 @@ module.exports.default = () => {
     lastName: fake.randLastName(),
     email: fake.randEmail(),
     password: fake.randPassword(),
-    photoPath: fake.randomAvatar()
+    photoPath: fake.randAvatar()
   }
 }
