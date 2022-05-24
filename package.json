@@ -14,6 +14,7 @@
     "sails": "^1.5.2",
     "sails-hook-orm": "^4.0.0",
     "sails-hook-sockets": "^2.0.0",
+    "uuid": "^8.3.2",
     "webpack": "^5.72.1"
   },
   "devDependencies": {

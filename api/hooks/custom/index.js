@@ -51,8 +51,8 @@ module.exports = function defineCustomHook(sails) {
             //   )
             // }
 
-            sails.hooks.inertia.share('user', { name: 'Kelvin Omereshone' })
-            sails.hooks.inertia.viewData('user', { name: 'Kelvin Omereshone' })
+            // sails.hooks.inertia.share('user', { name: 'Kelvin Omereshone' })
+            // sails.hooks.inertia.viewData('user', { name: 'Kelvin Omereshone' })
 
             // Prevent the browser from caching logged-in users' pages.
             // (including w/ the Chrome back button)
@@ -61,9 +61,9 @@ module.exports = function defineCustomHook(sails) {
             res.setHeader('Cache-Control', 'no-cache, no-store')
 
             next()
-          },
-        },
-      },
-    },
+          }
+        }
+      }
+    }
   }
 }

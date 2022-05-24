@@ -28,11 +28,11 @@ module.exports = {
     },
     organizations: {
       collection: 'organization',
-      via: 'organization'
+      via: 'account'
     },
     contacts: {
       collection: 'contact',
-      via: 'contact'
+      via: 'account'
     }
   }
 }

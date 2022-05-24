@@ -4,7 +4,7 @@ import Counter from '../components/Counter.vue'
 
 const { name } = defineProps({
   name: String,
-  user: Object,
+  user: Object
 })
 </script>
 

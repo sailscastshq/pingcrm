@@ -25,7 +25,8 @@ module.exports = {
       type: 'string',
       isEmail: true,
       unique: true,
-      maxLength: 50
+      maxLength: 50,
+      required: true
     },
     emailVerifiedAt: {
       type: 'number',
@@ -41,7 +42,6 @@ module.exports = {
     },
     owner: {
       type: 'boolean',
-      isBoolean: true,
       defaultsTo: false
     },
     photoPath: {
