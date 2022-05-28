@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      v-if="$page.props.flash.success && show"
+      v-if="page.props.flash.success && show"
       class="mb-8 flex max-w-3xl items-center justify-between rounded bg-green-500"
     >
       <div class="flex items-center">
@@ -13,7 +13,7 @@
           <polygon points="0 11 2 9 7 14 18 3 20 5 7 18" />
         </svg>
         <div class="py-4 text-sm font-medium text-white">
-          {{ $page.props.flash.success }}
+          {{ page.props.flash.success }}
         </div>
       </div>
       <button type="button" class="group mr-2 p-2" @click="show = false">
@@ -32,8 +32,7 @@
     </div>
     <div
       v-if="
-        ($page.props.flash.error ||
-          Object.keys($page.props.errors).length > 0) &&
+        (page.props.flash.error || Object.keys(page.props.errors).length > 0) &&
         show
       "
       class="mb-8 flex max-w-3xl items-center justify-between rounded bg-red-500"
@@ -49,17 +48,17 @@
           />
         </svg>
         <div
-          v-if="$page.props.flash.error"
+          v-if="page.props.flash.error"
           class="py-4 text-sm font-medium text-white"
         >
-          {{ $page.props.flash.error }}
+          {{ page.props.flash.error }}
         </div>
         <div v-else class="py-4 text-sm font-medium text-white">
-          <span v-if="Object.keys($page.props.errors).length === 1"
+          <span v-if="Object.keys(page.props.errors).length === 1"
             >There is one form error.</span
           >
           <span v-else
-            >There are {{ Object.keys($page.props.errors).length }} form
+            >There are {{ Object.keys(page.props.errors).length }} form
             errors.</span
           >
         </div>
@@ -83,10 +82,12 @@
 
 <script setup>
 import { ref, watch } from 'vue'
+import { usePage } from '@inertiajs/inertia-vue3'
 let show = ref(true)
+const page = usePage()
 
 watch(
-  '$page.props.flash',
+  'page.props.flash',
   () => {
     show = true
   },

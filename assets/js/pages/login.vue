@@ -4,7 +4,6 @@ import Logo from '../components/Logo'
 import TextInput from '../components/TextInput.vue'
 import LoadingButton from '../components/LoadingButton.vue'
 import { useForm } from '@inertiajs/inertia-vue3'
-
 const form = useForm({
   email: 'jacksparrow@blackpearl.com',
   password: 'parley',
