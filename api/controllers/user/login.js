@@ -38,18 +38,18 @@ module.exports = {
   },
 
   fn: async function ({ email, password, remember }) {
-    var userRecord = await User.findOne({
+    var user = await User.findOne({
       email: email.toLowerCase()
     })
 
     // If there was no matching user, respond thru the "noUser" exit.
-    if (!userRecord) {
+    if (!user) {
       throw 'noUser'
     }
 
     // If the password doesn't match, then also exit thru "badCombo".
     await sails.helpers.passwords
-      .checkPassword(password, userRecord.password)
+      .checkPassword(password, user.password)
       .intercept('incorrect', 'badCombo')
 
     if (remember) {
@@ -59,7 +59,7 @@ module.exports = {
 
     // Modify the active session instance.
     // (This will be persisted when the response is sent.)
-    this.req.session.userId = userRecord.id
+    this.req.session.userId = user.id
     return '/'
   }
 }
