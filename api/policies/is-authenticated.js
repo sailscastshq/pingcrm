@@ -2,7 +2,7 @@ module.exports = async function (req, res, proceed) {
   if (req.session.userId) {
     const loggedInUser = await User.findOne({
       id: req.session.userId
-    })
+    }).populate('account')
     if (!loggedInUser) {
       sails.log.warn(
         'Somehow, the user record for the logged-in user (`' +
