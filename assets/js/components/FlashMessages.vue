@@ -1,3 +1,18 @@
+<script setup>
+import { ref, watch } from 'vue'
+import { usePage } from '@inertiajs/inertia-vue3'
+let show = ref(true)
+const page = usePage()
+
+watch(
+  'page.props.flash',
+  () => {
+    show = true
+  },
+  { deep: true }
+)
+</script>
+
 <template>
   <div>
     <div
@@ -79,18 +94,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { ref, watch } from 'vue'
-import { usePage } from '@inertiajs/inertia-vue3'
-let show = ref(true)
-const page = usePage()
-
-watch(
-  'page.props.flash',
-  () => {
-    show = true
-  },
-  { deep: true }
-)
-</script>
