@@ -20,5 +20,7 @@ module.exports.routes = {
    ***************************************************************************/
   'GET /': 'home/view-index',
   'GET /login': 'user/view-login',
-  'POST /login': 'user/login'
+  'POST /login': 'user/login',
+
+  'GET /users': 'users/view-index'
 }
