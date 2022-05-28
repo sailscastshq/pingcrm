@@ -18,12 +18,25 @@ module.exports.bootstrap = async function () {
   if ((await User.count()) > 0) {
     return
   }
+
   const account = await sails.helpers.vane('account')
+
   await sails.helpers.vane('user', {
     email: 'jacksparrow@blackpearl.com',
     password: 'parley',
     account: account.id,
     owner: true
   })
+
   await sails.helpers.vane('user', { account: account.id }, { count: 5 })
+
+  const organizations = await sails.helpers.vane(
+    'organization',
+    { account: account.id },
+    { count: 100 }
+  )
+
+  await sails.helpers.vane('contact', { account: account.id }, { count: 100 })
+
+  const organizationIds = organizations.map((organization) => organization.id)
 }
