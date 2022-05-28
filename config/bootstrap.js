@@ -36,7 +36,18 @@ module.exports.bootstrap = async function () {
     { count: 100 }
   )
 
-  await sails.helpers.vane('contact', { account: account.id }, { count: 100 })
+  const contacts = await sails.helpers.vane('contact', { account: account.id }, { count: 100 })
 
   const organizationIds = organizations.map((organization) => organization.id)
+
+  const contactsId = contacts.map((contact) => contact.id)
+ 
+
+   for (let i = 0; i < contacts.length; i++) {
+     const contactId = contactsId[i];
+     const organizationId = organizationIds[i];
+     await Contact.updateOne({id: contactId}, {
+       organization: organizationId
+     })
+   }
 }
