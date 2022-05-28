@@ -61,6 +61,17 @@ module.exports = {
       model: 'account'
     }
   },
+  beforeCreate: async function (valuesToSet, proceed) {
+    sails.helpers.passwords
+      .hashPassword(valuesToSet.password)
+      .exec((error, hashedPassword) => {
+        if (error) {
+          return proceed(err)
+        }
+        valuesToSet.password = hashedPassword
+        return proceed()
+      })
+  },
   customToJSON: function () {
     return _.omit(this, ['password'])
   }
