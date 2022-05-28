@@ -15,6 +15,11 @@ function login() {
   form.post('/login')
 }
 </script>
+<script>
+export default {
+  layout: null
+}
+</script>
 <template>
   <Head>
     <title>Login</title>
