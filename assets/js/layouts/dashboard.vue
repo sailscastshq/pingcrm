@@ -12,6 +12,7 @@ defineProps({
 </script>
 <template>
   <div>
+    <div id="dropdown"></div>
     <div class="md:flex md:flex-col">
       <div class="md:flex md:h-screen md:flex-col">
         <div class="md:flex md:flex-shrink-0">
@@ -62,17 +63,17 @@ defineProps({
               <template #dropdown>
                 <div class="mt-2 rounded bg-white py-2 text-sm shadow-xl">
                   <Link
-                    class="block px-4 py-2 text-left hover:bg-indigo-500 hover:text-white"
+                    class="block px-6 py-2 text-left hover:bg-indigo-500 hover:text-white"
                     :href="`/users/${user.id}/edit`"
                     >My Profile</Link
                   >
                   <Link
-                    class="block px-4 py-2 hover:bg-indigo-500 hover:text-white"
+                    class="block px-6 py-2 hover:bg-indigo-500 hover:text-white"
                     href="/users"
                     >Manage Users</Link
                   >
                   <Link
-                    class="block w-full px-4 py-2 text-left hover:bg-indigo-500 hover:text-white"
+                    class="block w-full px-6 py-2 text-left hover:bg-indigo-500 hover:text-white"
                     href="/logout"
                     method="delete"
                     as="button"

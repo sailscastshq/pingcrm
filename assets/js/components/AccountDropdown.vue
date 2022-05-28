@@ -1,13 +1,11 @@
 <template>
-  <div class="relative">
-    <button type="button" @click="show = !show">
-      <slot />
-      <div class="fixed inset-0 bg-black opacity-20" v-if="show"></div>
-      <div class="absolute" v-if="show" @click.stop="show = !autoClose">
-        <slot name="dropdown" />
-      </div>
-    </button>
-  </div>
+  <button type="button" @click="show = !show">
+    <slot />
+    <div class="fixed inset-0 bg-black opacity-20" v-if="show"></div>
+    <div class="absolute right-7" v-if="show" @click.stop="show = !autoClose">
+      <slot name="dropdown" />
+    </div>
+  </button>
 </template>
 <script setup>
 import { ref, onMounted } from 'vue'
@@ -22,7 +20,8 @@ defineProps({
 onMounted(() => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      show = false
+      console.log('Got here')
+      show.value = false
     }
   })
 })
