@@ -18,6 +18,7 @@ module.exports = {
 
   fn: async function ({ page }) {
     const PAGE_SIZE = 10
+
     const path = `${sails.config.custom.baseUrl}${this.req.path}`
     const { account } = await User.findOne(this.req.session.userId)
 
