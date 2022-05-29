@@ -1,10 +1,10 @@
 <script setup>
 import { Link } from '@inertiajs/inertia-vue3'
 import Logo from '../components/Logo'
-import FlashMessages from '../components/FlashMessages.vue'
-import Icon from '../components/Icon.vue'
-import MainMenu from '../components/MainMenu.vue'
-import AccountDropdown from '../components/AccountDropdown.vue'
+import FlashMessages from '../components/FlashMessages'
+import Icon from '../components/Icon'
+import MainMenu from '../components/MainMenu'
+import AccountDropdown from '../components/AccountDropdown'
 
 import { usePage } from '@inertiajs/inertia-vue3'
 

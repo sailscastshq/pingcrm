@@ -11,7 +11,7 @@
     "@sailshq/connect-redis": "^3.2.1",
     "@sailshq/lodash": "^3.10.3",
     "@sailshq/socket.io-redis": "^5.2.0",
-    "inertia-sails": "^0.0.2",
+    "inertia-sails": "^0.0.3",
     "sails": "^1.5.2",
     "sails-hook-apianalytics": "^2.0.5",
     "sails-hook-organics": "^2.2.0",
