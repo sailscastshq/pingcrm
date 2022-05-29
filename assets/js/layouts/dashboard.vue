@@ -6,9 +6,9 @@ import Icon from '../components/Icon.vue'
 import MainMenu from '../components/MainMenu.vue'
 import AccountDropdown from '../components/AccountDropdown.vue'
 
-defineProps({
-  user: Object
-})
+import { usePage } from '@inertiajs/inertia-vue3'
+
+const loggedInUser = usePage().props.value.loggedInUser
 </script>
 <template>
   <div>
@@ -42,16 +42,16 @@ defineProps({
           <div
             class="md:text-md flex w-full items-center justify-between border-b bg-white p-4 text-sm md:px-12 md:py-0"
           >
-            <div class="mr-4 mt-1">{{ user.account.name }}</div>
+            <div class="mr-4 mt-1">{{ loggedInUser.account.name }}</div>
             <account-dropdown class="mt-1">
               <template #default>
                 <div class="group flex cursor-pointer select-none items-center">
                   <div
                     class="mr-1 whitespace-nowrap text-gray-700 focus:text-indigo-600 group-hover:text-indigo-600"
                   >
-                    <span>{{ user.firstName }}</span>
+                    <span>{{ loggedInUser.firstName }}</span>
                     <span class="hidden md:inline"
-                      >&nbsp;{{ user.lastName }}</span
+                      >&nbsp;{{ loggedInUser.lastName }}</span
                     >
                   </div>
                   <icon
@@ -64,7 +64,7 @@ defineProps({
                 <div class="mt-2 rounded bg-white py-2 text-sm shadow-xl">
                   <Link
                     class="block px-6 py-2 text-left hover:bg-indigo-500 hover:text-white"
-                    :href="`/users/${user.id}/edit`"
+                    :href="`/users/${loggedInUser.id}/edit`"
                     >My Profile</Link
                   >
                   <Link

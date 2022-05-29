@@ -12,7 +12,7 @@ module.exports = async function (req, res, proceed) {
       delete req.session.userId
       return res.redirect('/login')
     }
-    sails.hooks.inertia.share('user', loggedInUser)
+    sails.hooks.inertia.share('loggedInUser', loggedInUser)
     return proceed()
   }
   return res.redirect('/login')
