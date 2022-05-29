@@ -22,5 +22,5 @@ module.exports.routes = {
   'GET /login': 'user/view-login',
   'POST /login': 'user/login',
 
-  'GET /users': 'users/view-index'
+  'GET /users': 'user/view-users'
 }
