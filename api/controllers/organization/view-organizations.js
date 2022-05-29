@@ -17,7 +17,7 @@ module.exports = {
   },
 
   fn: async function ({ page }) {
-    const PAGE_SIZE = 15
+    const PAGE_SIZE = 10
     const path = `${sails.config.custom.baseUrl}${this.req.path}`
     const { account } = await User.findOne(this.req.session.userId)
 
@@ -28,10 +28,7 @@ module.exports = {
     const links = []
     for (i = 0; i < totalPage; i++) {
       let linkPageNumber = i + 1
-      let linkUrl =
-        page != linkPageNumber || linkPageNumber == totalPage
-          ? `${path}?page=${linkPageNumber}`
-          : null
+      let linkUrl = `${path}?page=${linkPageNumber}`
 
       links.push({
         label: linkPageNumber,
@@ -39,6 +36,20 @@ module.exports = {
         active: linkPageNumber == page
       })
     }
+
+    const previousLink = {
+      label: '&laquo; Previous',
+      active: false,
+      url: page > 1 ? `${path}?page=${page - 1}` : null
+    }
+    const nextLink = {
+      label: 'Next &raquo;',
+      active: false,
+      url: page < totalPage ? `${path}?page=${page + 1}` : null
+    }
+
+    links.unshift(previousLink)
+    links.push(nextLink)
 
     const organizations = await Organization.find({ account })
       .sort([{ createdAt: 'DESC' }])
