@@ -1,10 +1,7 @@
 <script setup>
 import { v4 as uuid } from 'uuid'
 import { ref, watch } from 'vue'
-
-const selected = ref(modelValue)
-
-defineProps({
+const props = defineProps({
   id: {
     type: String,
     default() {
@@ -15,6 +12,8 @@ defineProps({
   label: String,
   modelValue: [String, Number, Boolean]
 })
+
+const selected = ref(props.modelValue)
 
 const emit = defineEmits(['update:modelValue'])
 

@@ -4,6 +4,16 @@ import FileInput from '@/components/FileInput'
 import TextInput from '@/components/TextInput'
 import SelectInput from '@/components/SelectInput'
 import LoadingButton from '@/components/LoadingButton'
+import { useForm } from '@inertiajs/inertia-vue3'
+
+const form = useForm({
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  owner: false,
+  photo: null
+})
 </script>
 <template>
   <div>
@@ -18,14 +28,14 @@ import LoadingButton from '@/components/LoadingButton'
       <form @submit.prevent="store">
         <div class="-mb-8 -mr-6 flex flex-wrap p-8">
           <text-input
-            v-model="form.first_name"
-            :error="form.errors.first_name"
+            v-model="form.firstName"
+            :error="form.errors.firstName"
             class="w-full pb-8 pr-6 lg:w-1/2"
             label="First name"
           />
           <text-input
-            v-model="form.last_name"
-            :error="form.errors.last_name"
+            v-model="form.lastName"
+            :error="form.errors.lastName"
             class="w-full pb-8 pr-6 lg:w-1/2"
             label="Last name"
           />
@@ -66,7 +76,7 @@ import LoadingButton from '@/components/LoadingButton'
         >
           <loading-button
             :loading="form.processing"
-            class="btn-indigo"
+            class="whitespace-nowrap rounded bg-indigo-600 px-6 py-3 text-sm font-bold leading-4 text-white hover:bg-orange-400 focus:bg-orange-400"
             type="submit"
             >Create User</loading-button
           >
