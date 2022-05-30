@@ -8,12 +8,14 @@
       ref="input"
       v-bind="{ ...$attrs, class: null }"
       class="relative block w-full appearance-none rounded border bg-white p-2 text-left font-sans leading-normal text-gray-700 placeholder:text-gray-500 placeholder:opacity-100 focus:border-indigo-400 focus:outline-none focus:ring active:outline-none"
-      :class="{ error: error }"
+      :class="
+        error ? ['border-red-500', 'focus:ring', 'focus:ring-red-200'] : []
+      "
       :type="type"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
     />
-    <div v-if="error" class="form-error">{{ error }}</div>
+    <div v-if="error" class="mt-2 text-sm text-red-700">{{ error }}</div>
   </div>
 </template>
 

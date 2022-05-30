@@ -29,28 +29,35 @@ module.exports = {
       responseType: 'redirect'
     },
     badCombo: {
+      statusCode: 400,
       responseType: 'redirect'
-    },
-    noUser: {
-      description: `The provided email does not match any user in the database.`,
-      responseType: 'unauthorized'
     }
   },
 
   fn: async function ({ email, password, remember }) {
+    const credentialErrorMessage = 'These credentials do not match our records.'
     var user = await User.findOne({
       email: email.toLowerCase()
     })
 
     // If there was no matching user, respond thru the "noUser" exit.
     if (!user) {
-      throw 'noUser'
+      sails.hooks.inertia.share('errors', {
+        email: credentialErrorMessage
+      })
+      throw { badCombo: 'back' }
     }
 
     // If the password doesn't match, then also exit thru "badCombo".
     await sails.helpers.passwords
       .checkPassword(password, user.password)
-      .intercept('incorrect', 'badCombo')
+      .intercept('incorrect', (error) => {
+        sails.log(error)
+        sails.hooks.inertia.share('errors', {
+          password: credentialErrorMessage
+        })
+        return { badCombo: 'back' }
+      })
 
     if (remember) {
       this.req.session.cookie.maxAge =

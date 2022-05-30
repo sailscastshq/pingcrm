@@ -12,7 +12,10 @@ module.exports = function defineCustomHook(sails) {
      */
     initialize: async function () {
       sails.log.info('Initializing custom hook (`custom`)')
-      sails.hooks.inertia.version(1)
+
+      sails.on('hook:inertia:loaded', () => {
+        sails.hooks.inertia.version(1)
+      })
     },
     routes: {
       before: {
