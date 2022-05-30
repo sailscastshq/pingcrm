@@ -12,7 +12,15 @@ defineProps({
       <title>Users</title>
     </Head>
     <h1 class="mb-8 text-3xl font-bold">Users</h1>
-
+    <div class="mb-6 flex items-center justify-between">
+      <Link
+        class="whitespace-nowrap rounded bg-indigo-600 px-6 py-3 text-sm font-bold leading-4 text-white hover:bg-orange-400 focus:bg-orange-400"
+        href="/users/create"
+      >
+        <span>Create</span>
+        <span class="hidden md:inline">&nbsp;User</span>
+      </Link>
+    </div>
     <div class="overflow-x-auto rounded-md bg-white shadow">
       <table class="w-full whitespace-nowrap">
         <tr class="text-left font-bold">
