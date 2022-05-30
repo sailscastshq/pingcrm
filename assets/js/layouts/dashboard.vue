@@ -45,7 +45,13 @@ const loggedInUser = usePage().props.value.loggedInUser
             <div class="mr-4 mt-1">{{ loggedInUser.account.name }}</div>
             <account-dropdown class="mt-1">
               <template #default>
-                <div class="group flex cursor-pointer select-none items-center">
+                <div
+                  class="group flex cursor-pointer select-none items-center space-x-2"
+                >
+                  <img
+                    :src="loggedInUser.photoPath"
+                    class="h-9 w-9 rounded-full"
+                  />
                   <div
                     class="mr-1 whitespace-nowrap text-gray-700 focus:text-indigo-600 group-hover:text-indigo-600"
                   >
