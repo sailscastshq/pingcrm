@@ -37,7 +37,7 @@ defineProps({
               />
               {{ user.firstName }} {{ user.lastName }}
               <icon
-                v-if="user.deleted_at"
+                v-if="user.deletedAt"
                 name="trash"
                 class="ml-2 h-3 w-3 flex-shrink-0 fill-gray-400"
               />
