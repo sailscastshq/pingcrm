@@ -1,6 +1,6 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3'
-import Icon from '../../components/Icon'
+import Icon from '@/components/Icon'
 
 defineProps({
   users: Array

@@ -1,7 +1,7 @@
 <script setup>
 import { Link } from '@inertiajs/inertia-vue3'
-import Icon from '../components/Icon'
 import { usePage } from '@inertiajs/inertia-vue3'
+import Icon from '@/components/Icon'
 
 function isUrl(...urls) {
   let currentUrl = usePage().url.value.substr(1)

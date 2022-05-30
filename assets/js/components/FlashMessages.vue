@@ -2,10 +2,9 @@
 import { ref, watch } from 'vue'
 import { usePage } from '@inertiajs/inertia-vue3'
 let show = ref(true)
-const page = usePage()
-
+const page = ref(usePage())
 watch(
-  'page.props.flash',
+  'page.value.props.flash',
   () => {
     show = true
   },

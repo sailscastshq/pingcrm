@@ -21,7 +21,11 @@ const webpack = require('webpack')
 module.exports.webpack = {
   mode: 'development',
   resolve: {
-    extensions: ['.vue', '...']
+    extensions: ['.vue', '...'],
+    alias: {
+      '~': path.resolve(__dirname, '..', 'assets'),
+      '@': path.resolve(__dirname, '..', 'assets', 'js')
+    }
   },
 
   /***************************************************************************
