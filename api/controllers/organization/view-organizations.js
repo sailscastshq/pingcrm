@@ -22,7 +22,6 @@ module.exports = {
     const path = `${sails.config.custom.baseUrl}${this.req.path}`
     const { account } = await User.findOne(this.req.session.userId)
 
-    const skip = (page - 1) * PAGE_SIZE
     const count = await Organization.count({ account })
     const totalPage = Math.ceil(count / PAGE_SIZE)
 
@@ -53,9 +52,8 @@ module.exports = {
     links.push(nextLink)
 
     const organizations = await Organization.find({ account })
-      .sort([{ createdAt: 'DESC' }])
-      .skip(skip)
-      .limit(PAGE_SIZE)
+      .sort([{ name: 'ASC' }])
+      .paginate(page - 1, PAGE_SIZE)
 
     const payload = {
       total: count,
