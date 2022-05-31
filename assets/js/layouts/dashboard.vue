@@ -98,7 +98,7 @@ const loggedInUser = usePage().props.value.loggedInUser
             class="px-4 py-8 md:flex-1 md:overflow-y-auto md:p-12"
             scroll-region
           >
-            <!-- <flash-messages /> -->
+            <flash-messages />
             <slot />
           </div>
         </div>
