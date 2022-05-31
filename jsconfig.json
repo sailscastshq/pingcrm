@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./assets",
+    "jsx": "preserve",
+    "paths": {
+      "@/*": ["./js/*"],
+      "~/*": ["./assets/*"],
+    }
+  },
+  "exclude": ["node_modules", ".tmp"]
+}
