@@ -1,20 +1,18 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
+import { useEventListener } from '@/composables/event'
 let show = ref(false)
-
 defineProps({
   autoClose: {
     type: Boolean,
     default: true
   }
 })
-onMounted(() => {
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      console.log('Got here')
-      show.value = false
-    }
-  })
+
+useEventListener(document, 'keydown', (e) => {
+  if (e.key === 'Escape') {
+    show.value = false
+  }
 })
 </script>
 <template>
