@@ -18,7 +18,7 @@ module.exports.routes = {
    * for configuration options and examples.                                  *
    *                                                                          *
    ***************************************************************************/
-  'GET /': 'home/view-index',
+  'GET /': 'home/index',
   'GET /login': 'auth/view-login',
   'POST /login': 'auth/login',
 
