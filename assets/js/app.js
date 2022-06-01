@@ -1,7 +1,7 @@
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue3'
 import { InertiaProgress } from '@inertiajs/progress'
-import '../css/app.css'
+import '~/css/app.css'
 import dashboard from '@/layouts/dashboard'
 
 InertiaProgress.init()
