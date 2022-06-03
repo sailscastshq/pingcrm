@@ -24,6 +24,22 @@ module.exports = function defineCustomHook(sails) {
         'GET /': {
           skipAssets: true,
           fn: async function (req, res, next) {
+            if (req.session.userId) {
+              const loggedInUser = await User.findOne({
+                id: req.session.userId
+              }).populate('account')
+              if (!loggedInUser) {
+                sails.log.warn(
+                  'Somehow, the user record for the logged-in user (`' +
+                    req.session.userId +
+                    '`) has gone missing....'
+                )
+                delete req.session.userId
+                return res.redirect('/login')
+              }
+              sails.hooks.inertia.share('loggedInUser', loggedInUser)
+              return next()
+            }
             return next()
           }
         }
