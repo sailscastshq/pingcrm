@@ -8,6 +8,6 @@ module.exports = {
   },
 
   fn: async function () {
-    return sails.hooks.inertia.render('reports/index')
+    return sails.inertia.render('reports/index')
   }
 }

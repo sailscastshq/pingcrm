@@ -10,6 +10,6 @@ module.exports = {
   fn: async function () {
     const { account } = await User.findOne(this.req.session.userId)
     const { users } = await Account.findOne({ id: account }).populate('users')
-    return sails.hooks.inertia.render('users/index', { users })
+    return sails.inertia.render('users/index', { users })
   }
 }

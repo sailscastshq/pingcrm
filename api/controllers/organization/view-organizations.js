@@ -69,7 +69,7 @@ module.exports = {
       lastPageUrl: `${path}?page=${totalPage}`,
       links
     }
-    return sails.hooks.inertia.render('organizations/index', {
+    return sails.inertia.render('organizations/index', {
       organizations: payload
     })
   }

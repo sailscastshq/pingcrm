@@ -8,6 +8,6 @@ module.exports = {
   },
 
   fn: async function () {
-    return sails.hooks.inertia.render('users/create')
+    return sails.inertia.render('users/create')
   }
 }
