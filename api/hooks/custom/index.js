@@ -12,12 +12,6 @@ module.exports = function defineCustomHook(sails) {
      */
     initialize: async function () {
       sails.log.info('Initializing custom hook (`custom`)')
-
-      sails.on('hook:inertia:loaded', () => {
-        sails.hooks.inertia.version(1)
-        sails.hooks.inertia.share('flash', {})
-        sails.hooks.inertia.share('errors', {})
-      })
     },
     routes: {
       before: {
